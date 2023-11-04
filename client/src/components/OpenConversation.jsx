@@ -12,8 +12,10 @@ export default function OpenConversation() {
 
   function handleSubmit(e){
     e.preventDefault()
-    sendMessage(selectedConversation.recipients.map(r => r.id),text)
-    setText('')
+    if(text&&selectedConversation){
+      sendMessage(selectedConversation.recipients.map(r => r.id),text)
+      setText('')
+    }
   }
 
   return (
